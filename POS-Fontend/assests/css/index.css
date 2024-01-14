@@ -2,6 +2,26 @@
     position: relative;
 }
 
+#login-section {
+    min-height: 100vh;
+}
+
+#login-section > .row {
+    width: 100%;
+}
+
+#login-section a {
+    color: red;
+}
+
+#login-section input {
+    border-radius: 20px;
+}
+
+#signin-box {
+    display: none;
+}
+
 #nav_bar {
     padding: 0;
 }

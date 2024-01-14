@@ -14,7 +14,7 @@ public class POSFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         String origin = req.getHeader("origin");
-        if(origin.equals(getServletContext().getInitParameter("origin"))){
+        if(origin.equals(getServletContext().getInitParameter("chrome-origin")) || origin.equals(getServletContext().getInitParameter("brave-origin"))){
             res.setHeader("Access-Control-Allow-Origin", origin);
             res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,HEADER");
             res.setHeader("Access-Control-Allow-Headers", "Content-Type");

@@ -7,6 +7,7 @@ let mobNavOpened = false;
 const displayNoneSections = () => {
     mobNavOpened = false;
     $(".mob-nav-btns").css("right", "-100vw");
+    $("#login-section").css("display", "none");
     $("#dashboard-section").css("display", "none");
     $("#customer-section").css("display", "none");
     $("#item-section").css("display", "none");
@@ -15,7 +16,8 @@ const displayNoneSections = () => {
 }
 
 displayNoneSections();
-$("#dashboard-section").css("display", "block");
+$("#nav_bar").css("display", "none");
+$("#login-section").css("display", "block");
 
 $(".dashboard").on('click', () => {
     displayNoneSections();

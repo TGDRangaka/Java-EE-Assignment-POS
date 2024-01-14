@@ -1,0 +1,31 @@
+CREATE TABLE Customer (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    salary DOUBLE
+);
+
+CREATE TABLE order_detail (
+    id VARCHAR(50) PRIMARY KEY,
+    date DATE,
+    cusId VARCHAR(50),
+    discount DOUBLE,
+    total DOUBLE,
+    FOREIGN KEY (cusId) REFERENCES Customer(id)
+);
+
+CREATE TABLE Item (
+    code VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    qty INT,
+    price DOUBLE
+);
+
+CREATE TABLE Order_Item (
+    orderId VARCHAR(50),
+    itemCode VARCHAR(50),
+    qty INT,
+    PRIMARY KEY (orderId, itemCode),
+    FOREIGN KEY (orderId) REFERENCES order_detail(id),
+    FOREIGN KEY (itemCode) REFERENCES Item(code)
+);

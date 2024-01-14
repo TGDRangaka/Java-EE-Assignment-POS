@@ -17,7 +17,7 @@ const getAllItems = () => {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         response.map(itm => {
             items.push(itm);
         })

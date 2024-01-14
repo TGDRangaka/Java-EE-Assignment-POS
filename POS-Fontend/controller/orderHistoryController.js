@@ -23,7 +23,7 @@ const getAllOrders = () => {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         orders.splice(0, orders.length)
         response.map(ordr => {
             orders.push(ordr);

@@ -157,7 +157,7 @@ $("#order-btn").on('click', ()=>{
                 $.ajax(settings).done(function (response) {
                     if(response == 'saved'){
                         orders.push(order);
-                        console.log(order);
+                        // console.log(order);
                         $("balance").val(Number.parseFloat($("#cash").val()) - total);
                         $("#order-section form").trigger('reset');
                         $("select").val("");

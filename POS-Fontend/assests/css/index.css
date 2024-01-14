@@ -4,6 +4,7 @@
 
 #login-section {
     min-height: 100vh;
+    transition: 1s;
 }
 
 #login-section > .row {

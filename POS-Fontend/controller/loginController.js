@@ -19,18 +19,26 @@ $('#signInBtn').on('click', ()=>{
     let user = new User(email, username, password);
     console.log(user);
 
+    if(!email || !username || !password){
+        Swal.fire({
+            icon: 'error',
+            title: 'Please fill all fields!'
+        });
+        return;
+    }
+
     let settings = {
-    "url": "http://localhost:8080/pos/user",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/json"
-    },
-    "data": JSON.stringify(user),
-    };
+        "url": "http://localhost:8080/pos/user",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify(user),
+      };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         if(response == 'saved'){
             $('#loginAccLink').click();
             Swal.fire({
@@ -53,27 +61,32 @@ $('#signInBtn').on('click', ()=>{
 $('#logInBtn').on('click', ()=>{
     let username = $('#login-username').val();
     let password = $('#login-password').val();
-    let user = new User(null, username, password);
-    console.log(user);
+
+    if(!username || !password){
+        Swal.fire({
+            icon: 'error',
+            title: 'Please enter both username and password!'
+        });
+        return;
+    }
 
     let settings = {
-    "url": "http://localhost:8080/pos/user",
-    "method": "GET",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/json"
-    },
-    "data": JSON.stringify(user),
-    };
+        "url": `http://localhost:8080/pos/user?username=${username}&password=${password}`,
+        "method": "GET",
+        "timeout": 0,
+      };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         if(response == 'verified'){
-            $("#login-section").css("display", "none");
+            $('form input').val('');
             $("#nav_bar").css("display", "block");
             $("#dashboard-section").css("display", "block");
+            $("#login-section").css("display", "none");
+            $(".dashboard").click();
 
             Swal.fire({
+                position: "top-end",
                 icon: 'success',
                 title: 'Log In  Succesfully',
                 showConfirmButton: false,
@@ -82,8 +95,7 @@ $('#logInBtn').on('click', ()=>{
         }else{
             Swal.fire({
                 icon: 'error',
-                title: 'Username or Password are incorrect...!!!',
-                text: message,
+                title: 'Username or Password are incorrect...!!!'
             });
         }
     });

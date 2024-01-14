@@ -17,7 +17,7 @@ const displayNoneSections = () => {
 
 displayNoneSections();
 $("#nav_bar").css("display", "none");
-$("#login-section").css("display", "block");
+$("#login-section").css("display", "flex");
 
 $(".dashboard").on('click', () => {
     displayNoneSections();
@@ -48,6 +48,25 @@ $(".order-history").on('click', () => {
     displayNoneSections();
     $("#sectionName").text("Order History");
     $("#order-history-section").css("display", "block");
+});
+
+$(".logout").on('click', () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You have to login again!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Log Out!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            displayNoneSections();
+            $("#sectionName").text("Dashboard");
+            $("#nav_bar").css("display", "none");
+            $("#login-section").css("display", "flex");
+        }
+      });
 });
 
 $(".mob-nav-menu").on('click', ()=>{

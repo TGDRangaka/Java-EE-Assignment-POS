@@ -18,7 +18,7 @@ const getAllCustomers = () => {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         response.map(cus => {
             customers.push(cus);
         })

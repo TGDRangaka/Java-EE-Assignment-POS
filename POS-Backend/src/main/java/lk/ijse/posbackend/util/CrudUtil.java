@@ -4,6 +4,7 @@ import lk.ijse.posbackend.db.DBConnection;
 import lk.ijse.posbackend.dto.CustomerDTO;
 import lk.ijse.posbackend.dto.ItemDTO;
 import lk.ijse.posbackend.dto.OrderDTO;
+import lk.ijse.posbackend.dto.UserDTO;
 
 import java.lang.reflect.Constructor;
 import java.sql.Connection;
@@ -15,6 +16,9 @@ import java.util.List;
 
 public class CrudUtil {
     public static CrudUtil crudUtil;
+
+    private final static String VERIFY_USER = "SELECT * FROM User WHERE username = ? AND password = ? LIMIT 1";
+    private final static String SAVE_USER = "INSERT INTO User (email, username, password) VALUES (?, ?, ?)";
 
     private final static String GET_CUSTOMERS = "SELECT * FROM Customer";
     private final static String SAVE_CUSTOMER = "INSERT INTO Customer (id, name, address, salary) VALUES (?, ?, ?, ?)";
@@ -42,7 +46,7 @@ public class CrudUtil {
 
     public static CrudUtil getInstance(){return crudUtil==null?crudUtil=new CrudUtil():crudUtil;}
 
-    public static <T>T executeQuery(Connection con, String sql, Object... args) throws Exception{
+    private static <T>T executeQuery(Connection con, String sql, Object... args) throws Exception{
         PreparedStatement ps = con.prepareStatement(sql);
         System.out.println("----- " + sql);
 
@@ -219,6 +223,14 @@ public class CrudUtil {
         return false;
     }
 
+    public boolean checkUser(String username, String password) throws Exception{
+        ResultSet rs = executeQuery(DBConnection.getInstance().getConnection(), VERIFY_USER, username, password);
+        if(rs.next()){
+            return true;
+        }
+        return false;
+    }
+
     private enum CrudTypes{ GET,SAVE,UPDATE,DELETE }
 
     private <T> String filterQuery(CrudTypes crudType, Class<T> dto){
@@ -240,6 +252,10 @@ public class CrudUtil {
             switch (crudType){
                 case GET: return GET_ORDERS;
                 case SAVE: return SAVE_ORDER;
+            }
+        }else if(dto.equals(UserDTO.class)){
+            switch (crudType){
+                case SAVE: return SAVE_USER;
             }
         }
         return null;

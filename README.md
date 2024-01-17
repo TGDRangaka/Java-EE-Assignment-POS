@@ -18,11 +18,10 @@ The POS Management System is a comprehensive solution for managing Point of Sale
 
 Follow these steps to install and set up the POS Management System:
 
-1. [Clone the repository](https://github.com/TGDRangaka/Java-EE-Assignment-POS?authuser=0).
+1. [Clone the repository](https://github.com/TGDRangaka/Java-EE-Assignment-POS.git).
 2. [Install and Configure TomcatEE version 10](https://tomcat.apache.org/download-10.cgi).
-3. [Get the queries and setup database](https://github.com/TGDRangaka/Java-EE-Assignment-POS/blob/main/POS-Backend/database%20queries.txt).
-4. [Run POS-Backend project](#link-to-authentication-setup).
-4. [Then run POS-Frontend to test Backend](#link-to-authentication-setup).
+3. [Get the queries and setup database](https://github.com/TGDRangaka/Java-EE-Assignment-POS/blob/main/database%20queries.txt).
+4. [Run Project](#link-to-authentication-setup).
 
 ## Usage
 
@@ -51,4 +50,4 @@ The system is integrated with a MySQL database using Java Naming and Directory I
 
 ## License
 
-This project is licensed under the [Your License] - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the [Your License] - see the [LICENSE.md](https://github.com/TGDRangaka/Java-EE-Assignment-POS/blob/main/LICENSE.md) file for details.

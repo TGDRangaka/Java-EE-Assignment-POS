@@ -32,7 +32,7 @@ Once installed, you can perform the following operations:
 
 ## Endpoints Documentation
 
-For API documentation, including available endpoints and methods, refer to [API Documentation.pdf](https://github.com/TGDRangaka/Java-EE-Assignment-POS/blob/main/API%20Documentation.pdf).
+For API documentation, including available endpoints and methods, refer to [API Documentation.pdf](https://documenter.getpostman.com/view/28151984/2s9YsRdVKJ).
 
 ## Logging
 

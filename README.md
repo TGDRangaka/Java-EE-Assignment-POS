@@ -9,6 +9,7 @@ The POS Management System is a comprehensive solution for managing Point of Sale
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
+- [Frontend Project](#frontend-project)
 - [Logging](#logging)
 - [Database Integration](#database-integration)
 - [Technologies Used](#technologies-used)
@@ -34,6 +35,10 @@ Once installed, you can perform the following operations:
 ## API Documentation
 
 For API documentation, including available endpoints and methods, refer to [Postman API Documentation](https://documenter.getpostman.com/view/28151984/2s9YsRdVKJ).
+
+## Frontend Project
+
+You can find the frontend project [here](https://tgdrangaka.github.io/Java-EE-Assignment-POS-Frontend/).
 
 ## Logging
 
